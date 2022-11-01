@@ -1,0 +1,26 @@
+<% for(var i = 0; i < posts.length; i++) { 
+    console.log('hello')
+    %>
+<tr>
+ 
+        
+    <td><%= i + 1 %></td>
+    <td><%= posts[i].name %></td>
+    <td><%= posts[i].id %></td>
+    
+    <td><%= posts[i].phone %></td>
+    <td><%= posts[i].village %></td>
+    <td>    <a href="/data/<%= posts[i].id%>" class="btn border-shadow update">
+        <span class="text-gradient">L</span>
+    </a>
+        <a href="/dashboard/update-post?id=<%= posts[i]._id%>" class="btn border-shadow update">
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a>
+        <a class="btn border-shadow delete" data-id=<%= posts[i]._id%> >
+            <span class="text-gradient"><i class="fas fa-times"></i></span>
+        </a>
+    </td>
+
+  
+</tr>
+<% } %>

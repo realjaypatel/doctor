@@ -1,0 +1,33 @@
+p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/* .browse-card-img {
+    user-select: auto;
+    height: 100%;
+    object-fit: contain;
+    height: 326px;
+}
+
+.browse-card-div{
+    user-select: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    border-radius: 4px;
+}
+.game-card_image_div__3GP6O>img {
+width: auto;
+border-radius: none;
+} */
+
+/* iska ilaj hai ki sab thumbnails eak size ke rakhe verna aacha nai lag raha ..... */
+.browse-card-div{
+    min-height: 78.7%;
+    display: flex;
+    user-select: auto;
+    flex-direction: column;
+    justify-content: center;
+}
