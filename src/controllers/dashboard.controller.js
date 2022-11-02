@@ -23,7 +23,7 @@ router.get("/", auth, async (req, res) => {
 
     }
 
-    return res.render('dash/index.ejs', { posts: post })
+    return res.render('dash2/index.ejs', { posts: post })
 
 
 
@@ -35,7 +35,7 @@ router.get("/add-post", auth, async (req, res) => {
     }
 
 
-    return res.render('dash/add-post.ejs')
+    return res.render('dash2/add-post.ejs')
 
 
 
@@ -60,7 +60,7 @@ res.json({msg:error})
         return res.json({ postnotfound: 'nopost found with this id' })
     }
 console.log('===>',post)
-    return res.render('dash/update_post.ejs',{post:post})
+    return res.render('dash2/update_post.ejs',{post:post})
 
 
 

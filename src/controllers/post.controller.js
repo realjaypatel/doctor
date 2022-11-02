@@ -57,44 +57,16 @@ let fileuploader = (d)=>{
 
 router.post("/addpost",auth,async (req, res) => {
 
-
-  let file1 = 'default.jpg'
+console.log('../',req.files)
 
   if(req.files){
-    let filev = req.files.myfile;
-let file1 = await fileuploader(filev)
+     filev = req.files.myfile;
+ file1 = await fileuploader(filev)
+  }else{
+    file1 = 'default.jpg'
   }
 
 console.log(file1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-console.log('got a addpost req')
-
-
-
-
-
-
-
-
-
 
 
 if(!req.user){
@@ -193,7 +165,25 @@ router.delete("/:id",auth, async (req, res) => {
     
         });
 
-router.put("/:id",auth, async (req, res) => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.post("/update/:id",auth, async (req, res) => {
+  console.log('../',req.files)
+
 console.log('====>',req.body.title,req.body.txt,req.params.id)
 
   if(!req.user){
@@ -213,10 +203,35 @@ console.log('====>',req.body.title,req.body.txt,req.params.id)
   updated_data.txt = req.body.txt
   updated_data.title = req.body.title
 
+
+  console.log('.>',req.files)
+
+  if(req.files){
+    filev = req.files.myfile;
+file1 = await fileuploader(filev)
+updated_data.img = file1
+console.log('.>',file1)
+
+ }else{
+ 
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
   console.log('=>>',updated_data)
   if(post.user.toString() == req.user._id.toString()){
   await post.updateOne({$set:updated_data})
-  return res.json({msg:'your data has been updated successfully !'})
+  return res.redirect('/dashboard/update-post?id='+req.params.id)
   }else{
     return res.json({ notauthorised:'access denied :- not by owner'})
   }
