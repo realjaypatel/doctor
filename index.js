@@ -61,10 +61,12 @@ app.use(cors(corsOptions));
 const authController = require("./src/controllers/auth.controller.js");
 const postController = require("./src/controllers/post.controller.js");
 const dashController = require("./src/controllers/dashboard.controller.js");
+const doctordashController = require("./src/controllers/doctordash.controller.js");
 
 app.use("/auth", authController);
 app.use("/post", postController);
 app.use("/dashboard", dashController);
+app.use("/doctor-dash", doctordashController);
 
 
 
@@ -105,6 +107,10 @@ app.get("/test", auth, (req, res) => {
 app.get("/auth", (req, res) => {
   res.render("auth.ejs")
 })
+app.get("/doctor", (req, res) => {
+  res.render("doctor/index.ejs")
+})
+
 app.get("/", auth, (req, res) => {
   res.json({ a: req.user })
 })

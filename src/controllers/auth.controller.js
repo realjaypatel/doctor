@@ -52,7 +52,7 @@ res.cookie("jwt",token,{
 
 
 
-  return res.send(registered);
+  return res.redirect('/dashboard');
 }
 catch(err){
   return res.send(err)
@@ -81,7 +81,7 @@ res.cookie("jwt",token,{
   expires: new Date(Date.now()+(1000*60*60*24*30)),
   httpOnly: true
 })
-return res.json({a:'success'})
+return res.redirect('/dashboard');
       }else{
         return res.send('password mismatch')
               }

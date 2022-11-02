@@ -7,9 +7,10 @@ const postSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref:'users'
     },
+    title:{ type: String},
   txt: { type: String },
   img: { type: String },
-
+  date: { type: Date, default: Date.now },
 
 });
 

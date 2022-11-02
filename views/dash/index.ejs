@@ -11,8 +11,11 @@
                 <a href="dashboard/add-post" class="border-shadow">
                     <span class="text-gradient">New Post <i class="fas fa-user"></i></span>
                 </a>
-                <a href="/profile" class="border-shadow">
-                    <span class="text-gradient">Profile <i class="fa fa-print" aria-hidden="true"></i></span>
+                <a href="
+                    http://localhost:300/doctor-dash?id=<%= user.id %>
+                    
+                    " class="border-shadow">
+                    <span class="text-gradient"><%= user.id %> </span>
                 </a>
             </div>
 
@@ -22,10 +25,9 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>SR No</th>
-                            <th>Name</th>
-                            <th>ID</th>
-                            <th>Phone</th>
-                            <th>Village</th>
+                            <th>title</th>
+                           
+                            <th>Img</th>
                             <th>Action</th>
                         </tr>
                     </thead>

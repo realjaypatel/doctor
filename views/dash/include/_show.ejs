@@ -5,13 +5,12 @@
  
         
     <td><%= i + 1 %></td>
-    <td><%= posts[i].name %></td>
-    <td><%= posts[i].id %></td>
-    
-    <td><%= posts[i].phone %></td>
-    <td><%= posts[i].village %></td>
-    <td>    <a href="/data/<%= posts[i].id%>" class="btn border-shadow update">
-        <span class="text-gradient">L</span>
+    <td><%= posts[i].title %></td>
+    <td><img src="<%= posts[i].img %>" alt="<%= posts[i].img %>" srcset="">
+        
+        </td>
+
+    <td> 
     </a>
         <a href="/dashboard/update-post?id=<%= posts[i]._id%>" class="btn border-shadow update">
             <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
@@ -24,3 +23,17 @@
   
 </tr>
 <% } %>
+
+
+
+<style>
+    img{
+    display: block;
+    position: relative;
+    max-width: 100%;
+    max-height: 20px;
+    margin: auto;
+    border-radius: 1px;
+    object-fit: cover;
+    }
+</style>
