@@ -1,0 +1,239 @@
+
+<%- include('include/_header') %>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #MOVIE DETAIL
+      -->
+
+      <section class="movie-detail">
+        <div class="container">
+
+            <figure class="movie-detail-banner">
+  
+              
+  
+              
+  
+            </figure>
+  
+            <div class="movie-detail-content">
+  
+              <p class="detail-subtitle">New Post</p>
+  
+              <h1 class="h1 detail-title">
+                ADD <strong>details</strong>
+              </h1>
+  
+          
+              <form
+              action="/post/addpost"
+              method="POST"
+              id="add_user"
+              enctype="multipart/form-data"
+            >
+              <div class="new_user">
+                <div class="form-group">
+                  <label for="title" class="text-light">title</label>
+                  <input type="text" name="title" value="" placeholder="title..." />
+                </div>
+        
+                <div class="form-group">
+                  <label for="desctiption" class="text-light">about your app or game</label>
+                  <input type="text" name="about" value="" placeholder="desc..." />
+                </div>
+                <div class="form-group">
+                  <label for="desctiption" class="text-light">release Date </label>
+                  <input type="text" name="releaseDate" value="" placeholder="desc..." />
+                </div>
+
+                <div class="form-group">
+                  <label for="desctiption" class="text-light">Platform </label>
+                  <select  name="platform">
+                    <option value="windows">Windows</option>
+                    <option value="Mac">Mac</option>
+                    <option value="Android">Android</option>
+                    <option value="IOS">IOS</option>
+                  </select>
+                </div>
+              
+
+
+
+                <div class="form-group">
+                  <label for="desctiption" class="text-light">GameFile</label>
+                  <input type="file" name="gameFile" />
+                  
+                </div>
+
+
+
+                <div class="form-group">
+                  <label for="desctiption" class="text-light">logo</label>
+                  <input type="file" name="logo" onchange="getImagePreview1(event)" />
+                  <div id="preview1"></div>
+                </div>
+                <div class="form-group">
+                  <label for="desctiption" class="text-light">images</label>
+              
+                  <input type="file"  name="images" webkitdirectory directory multiple accept="image/*" onchange="getImagePreview2(event)"/>
+                  <div id="preview2"></div>
+                </div>
+                <div class="form-group">
+                  <label for="desctiption" class="text-light">thumbnail</label>
+                  <input type="file" name="thumbnail" onchange="getImagePreview3(event)" />
+                  <div id="preview3"></div>
+                </div>
+             
+
+
+
+
+
+
+
+
+        
+                <div class="form-group">
+                  <button type="submit" class="btn2 text-dark update">Save</button>
+                </div>
+              </div>
+            </form>
+              
+
+            </div>
+  
+          </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #TV SERIES
+      -->
+
+
+    </article>
+  </main>
+
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="/assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+<style>
+    
+input {
+    width: 100%;
+    padding: 0.6em 1em;
+    padding-top: 0.6em;
+    padding-right: 1em;
+    padding-bottom: 0.6em;
+    padding-left: 1em;
+    margin: 0.5em 0;
+    border: 1px solid var(--border);
+    font-family: 'Barlow', sans-serif;
+    font-size: 1em;
+    border-radius: 0.2em;
+box-sizing: border-box;
+}
+
+img{
+    display: block;
+    position: relative;
+    max-width: 100%;
+    max-height: 215px;
+    margin: auto;
+    border-radius: 14px;
+}
+.btn2{
+    width: 100%;
+    padding: .9em 1em;
+    background-color:#16db93; 
+    border: none;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: .2em;
+    margin: .5em 0;
+}
+
+
+</style>
+<script>
+    
+    function getImagePreview0(event) {
+     let image = URL.createObjectURL(event.target.files[0])
+let imagediv = document.getElementById('preview0');
+let newimg = document.createElement('img');
+newimg.src = image; 
+imagediv.appendChild(newimg);
+    }
+    function getImagePreview1(event) {
+     let image = URL.createObjectURL(event.target.files[0])
+let imagediv = document.getElementById('preview1');
+let newimg = document.createElement('img');
+newimg.src = image; 
+imagediv.appendChild(newimg);
+    }
+    function getImagePreview2(event) {
+ 
+let imagediv = document.getElementById('preview2');
+
+for (let i = 0;i < event.target.files.length;i++) {
+  let image = URL.createObjectURL(event.target.files[i])
+  let newimg = document.createElement('img');
+newimg.src = image; 
+imagediv.appendChild(newimg);
+ 
+  
+}
+
+
+
+    }
+    function getImagePreview3(event) {
+     let image = URL.createObjectURL(event.target.files[0])
+let imagediv = document.getElementById('preview3');
+let newimg = document.createElement('img');
+newimg.src = image; 
+imagediv.appendChild(newimg);
+    }
+
+</script>
+
+
+<%- include('include/_footer') %>

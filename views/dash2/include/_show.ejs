@@ -1,0 +1,50 @@
+       
+                <% for(var i=posts.length-1; i >=0 ; i--) { %>
+                  
+                    <li>
+                     <div class="movie-card">
+       
+                       <a href="/doctor-dash/post?id=<%= posts[i].id %>">
+                         <figure class="card-banner">
+                           <img src="http://localhost:300/<%= posts[i].thumbnail %>" alt="<%= posts[i].img %>">
+                         </figure>
+                       </a>
+       
+                       <div class="title-wrapper">
+                         <a href="/doctor-dash//post?id=<%= posts[i].id %>">
+                           <h3 class="card-title"><%= posts[i].title %></h3>
+                         </a>
+       
+                         <time datetime="2022"><%= posts[i].date.getDate() %>-<%=  posts[i].date.getMonth()+1%>- <%=  posts[i].date.getYear() - 100%></time>
+                       </div>
+       
+                       <div class="card-meta">
+                         <div class="badge badge-outline">IMP</div>
+       
+                         <div class="duration">
+                           
+                           <a href="/dashboard/update-post?id=<%= posts[i]._id%>" class="btn border-shadow update">
+                            <span class="text-gradient" >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.757 3l-7.466 7.466.008 4.247 4.238-.007L21 7.243V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12.757zm3.728-.9L21.9 3.516l-9.192 9.192-1.412.003-.002-1.417L20.485 2.1z"fill="rgba(255,255,255,1)"/></svg>
+                            </span>
+                        </a>
+                         </div>
+       
+                         <div class="rating">
+       
+                           <a class="btn border-shadow delete" data-id=<%= posts[i]._id%> >
+                            <span class="text-gradient"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path fill="none" d="M0 0h24v24H0z"/><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"fill="rgba(255,255,255,1)"/></svg></span>
+                        </a>
+                         </div>
+                       </div>
+       
+                     </div>
+                   </li>
+                 <% } %>
+            
+
+                 <style>
+                    .btn{
+                        padding: 8px 8px;
+                    }
+                 </style>

@@ -57,16 +57,73 @@ let fileuploader = (d)=>{
 
 router.post("/addpost",auth,async (req, res) => {
 
-console.log('../',req.files)
+console.log('......./',req.body.platform)
 
+
+
+//   if(req.files){
+//      gameFile = await fileuploader(req.files.gameFile)
+//  logo = await fileuploader(req.files.logo)
+//  thumbnail = await fileuploader(req.files.thumbnail)
+// images = []
+
+// for(let x = 0; x < req.files.images.length;x++){
+//   console.log('===>',x)
+//   data = await fileuploader(req.files.images[x]);
+//   images[x] = data
+// }
+
+
+
+
+//   }else{
+//    //yaha sab handle karna hai ki file nahi aayi to kya karna hai
+//   }
+gameFile = '';
+logo = ''
+thumbnail = '';
+images = []
   if(req.files){
-     filev = req.files.myfile;
- file1 = await fileuploader(filev)
-  }else{
-    file1 = 'default.jpg'
-  }
 
-console.log(file1)
+
+    try {
+      gameFile = await fileuploader(req.files.gameFile)
+    } catch (error) {
+      
+    }
+    
+    try {
+      
+    
+    logo = await fileuploader(req.files.logo)
+    } catch (error) {
+      
+    }
+    
+    try {
+      
+    thumbnail = await fileuploader(req.files.thumbnail)
+    } catch (error) {
+      
+    }
+    
+    try {
+      images = []
+    
+    for(let x = 0; x < req.files.images.length;x++){
+    console.log('===>',x)
+    data = await fileuploader(req.files.images[x]);
+    images[x] = data
+    }
+    } catch (error) {
+      
+    }
+    
+    
+    
+     }else{
+     
+     }
 
 
 if(!req.user){
@@ -78,13 +135,19 @@ if(!req.user){
 
   const newpost = new Postdb({
 user:req.user._id,
-txt:req.body.txt,
+logo:logo,
+thumbnail:thumbnail,
 title:req.body.title,
- img:file1
-
+about:req.body.about,
+images:images,
+releaseDate:req.body.releaseDate,
+platform:req.body.platform,
+gameFile:gameFile,
   })
 newpost.save().then((post) =>{
   
+  console.log('000==>',post)
+  console.log('00==>',images)
   return res.redirect('/dashboard/add-post')
 }
   )
@@ -200,17 +263,56 @@ console.log('====>',req.body.title,req.body.txt,req.params.id)
     return res.json({postnotfound:"post not found"})
   }
   let updated_data = post
-  updated_data.txt = req.body.txt
   updated_data.title = req.body.title
+  updated_data.about = req.body.about
+  updated_data.releaseDate = req.body.releaseDate
+  updated_data.platform = req.body.platform
 
-
-  console.log('.>',req.files)
 
   if(req.files){
-    filev = req.files.myfile;
-file1 = await fileuploader(filev)
-updated_data.img = file1
-console.log('.>',file1)
+
+
+try {
+  gameFile = await fileuploader(req.files.gameFile)
+  updated_data.gameFile = gameFile
+
+} catch (error) {
+  
+}
+
+try {
+  
+
+logo = await fileuploader(req.files.logo)
+updated_data.logo = logo
+console.log('logo', logo)
+} catch (error) {
+  console.log('logo error', error)
+}
+
+try {
+  
+thumbnail = await fileuploader(req.files.thumbnail)
+console.log('++++++++++++>',thumbnail)
+updated_data.thumbnail = thumbnail
+} catch (error) {
+  
+}
+
+try {
+  images = []
+
+for(let x = 0; x < req.files.images.length;x++){
+
+data = await fileuploader(req.files.images[x]);
+images[x] = data
+}
+updated_data.images = images
+} catch (error) {
+  
+}
+
+
 
  }else{
  
@@ -227,8 +329,6 @@ console.log('.>',file1)
 
 
 
-
-  console.log('=>>',updated_data)
   if(post.user.toString() == req.user._id.toString()){
   await post.updateOne({$set:updated_data})
   return res.redirect('/dashboard/update-post?id='+req.params.id)

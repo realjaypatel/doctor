@@ -532,7 +532,7 @@
   \*-----------------------------------*/
   
   .upcoming {
-    background: url("../images/upcoming-bg.png") no-repeat;
+    background: url("/assets/images/upcoming-bg.png") no-repeat;
     background-size: cover;
     background-position: center;
     padding-block: var(--section-padding);
@@ -681,7 +681,7 @@
   \*-----------------------------------*/
   
   .top-rated {
-    background: url("../images/top-rated-bg.jpg") no-repeat;
+    background: url("/assets/images/top-rated-bg.jpg") no-repeat;
     background-size: cover;
     background-position: center;
     padding-block: var(--section-padding);
@@ -735,7 +735,7 @@
   \*-----------------------------------*/
   
   .tv-series {
-    background: url("../images/tv-series-bg.jpg") no-repeat;
+    background: url("assets/images/tv-series-bg.jpg") no-repeat;
     background-size: cover;
     background-position: center;
     padding-block: var(--section-padding);
@@ -941,7 +941,7 @@
   \*-----------------------------------*/
   
   .movie-detail {
-    background: url("../images/movie-detail-bg.png") no-repeat;
+    background: url("/assets/images/movie-detail-bg.png") no-repeat;
     background-size: cover;
     background-position: center;
     padding-top: 160px;

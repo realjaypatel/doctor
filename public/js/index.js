@@ -33,7 +33,7 @@ console.log('===>',data)
 
 
 
-    $ondelete = $(".table tbody td a.delete");
+    $ondelete = $("a.delete");
     $ondelete.click(function(){
         console.log('asdf')
         var id = $(this).attr("data-id")

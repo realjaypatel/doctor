@@ -1,0 +1,146 @@
+
+<%- include('include/_header') %>
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+
+
+
+
+
+      <!-- 
+        - #UPCOMING
+      -->
+
+
+
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+
+
+
+
+      <!-- 
+        - #TOP RATED
+      -->
+
+      <section class="top-rated">
+        <div class="container">
+
+          <p class="section-subtitle">Upload your medical doc here</p>
+
+          <h2 class="h2 section-title">hello, <%= user.name %></h2>
+
+          <ul class="filter-list">
+
+            <li>
+                <a href="/dashboard/add-post">
+              <button class="filter-btn">add post</button>
+            </a>
+            </li>
+
+            <li>
+                <a href=" http://localhost:300/doctor-dash?id=<%= user.id %>">
+              <button class="filter-btn"><%= user.id %></button>
+            </a>
+            </li>
+
+         
+
+          </ul>
+
+          <ul class="movies-list">
+
+
+
+            <%- include('include/_show') %>
+
+
+
+
+
+
+
+
+
+
+
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #TV SERIES
+      -->
+
+
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+
+
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+  <%- include('include/_footer') %>

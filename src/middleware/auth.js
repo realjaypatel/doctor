@@ -17,7 +17,7 @@ const auth = async (req, res,next) => {
         }
         if(user){      
             req.user = user 
-            console.log('===>',req.files)
+            console.log('===l>',req.files)
         }else{
             req.user = 0
         }
