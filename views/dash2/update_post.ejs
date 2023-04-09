@@ -29,7 +29,7 @@
               </h1>
   
           
-              <form method="POST" id="update_use" action="http://localhost:300/post/update/<%= post._id %>"    enctype="multipart/form-data">
+              <form method="POST" id="update_use" action="/post/update/<%= post._id %>"    enctype="multipart/form-data">
                 <div class="new_user">
                   <div class="form-group">
                     <label for="title" class="text-light">title</label>
@@ -86,7 +86,7 @@
                     <label for="desctiption" class="text-light">logo</label>
                     <input type="file" name="logo" onchange="getImagePreview1(event)" />
                     <div id="preview1">
-                      <img src="http://localhost:300/<%= post.logo %>" alt="">
+                      <img src="/<%= post.logo %>" alt="">
                     </div>
                   </div>
                   <div class="form-group">
@@ -97,7 +97,7 @@
 
                       
                         <% for(var i=0; i < post.images.length; i++) { %>
-                         <img src="http://localhost:300/<%= post.images[i] %>" alt="">
+                         <img src="/<%= post.images[i] %>" alt="">
                         <% } %>
                         
 
@@ -107,7 +107,7 @@
                     <label for="desctiption" class="text-light">thumbnail</label>
                     <input type="file" name="thumbnail" onchange="getImagePreview3(event)" />
                     <div id="preview3">
-                        <img src="http://localhost:300/<%= post.thumbnail %>" alt="">
+                        <img src="/<%= post.thumbnail %>" alt="">
                     </div>
                   </div>
                

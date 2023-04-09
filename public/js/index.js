@@ -17,7 +17,7 @@ $("#update_user").submit(function(event){
 
 console.log('===>',data)
     var request = {
-        "url" : `http://localhost:300/post/${data._id}`,
+        "url" : `/post/${data._id}`,
         "method" : "PUT",
         "data" : data
     }
@@ -39,7 +39,7 @@ console.log('===>',data)
         var id = $(this).attr("data-id")
 console.log(id)
         var request = {
-            "url" : `http://localhost:300/post/${id}`,
+            "url" : `/post/${id}`,
             "method" : "DELETE"
         }
 
